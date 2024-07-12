@@ -39,7 +39,7 @@ const Checkoutcards = () => {
             <View style={styles.text}>
             <Text style={styles.title}>{item.category}</Text>
             <Text style={styles.subtitle}>{item.title}</Text>
-            <Text style={styles.amount}>{item.price}</Text>
+            <Text style={styles.amount}>z{item.price}</Text>
             </View>
         </View>
     );

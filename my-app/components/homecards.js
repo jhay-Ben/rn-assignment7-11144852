@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 
 const addToCart = async (product) => {
@@ -55,15 +56,19 @@ const Homecards = () => {
 
     const renderItem = ({ item }) => (
         <View style={styles.card}>
+            <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
             <Image source={{uri: item.image}} style={styles.image} />
             <TouchableOpacity onPress={() => addToCart(item)}>
                 <Image source={require('../assets/add_circle.png')} style={styles.add} />
             </TouchableOpacity>
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.subtitle}>{item.category}</Text>
-            <Text style={styles.amount}>{( "$", item.price)}</Text>
+            <Text style={styles.amount}>${ item.price}</Text>
+            </TouchableOpacity>
         </View>
     );
+
+    const navigation = useNavigation();
 
     return (
         <FlatList

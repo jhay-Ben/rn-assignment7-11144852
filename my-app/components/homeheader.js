@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { View, StyleSheet, Image, TouchableOpacity, } from 'react-native';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
+import "react-native-gesture-handler";
+
+
 
 
 const Homeheader = () => {
@@ -9,7 +12,7 @@ const Homeheader = () => {
         <View style={styles.container}>
 
             <View style={styles.menuContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
                     <Image source={require('../assets/Menu.png')} style={styles.menu} />
                 </TouchableOpacity>
             </View>
